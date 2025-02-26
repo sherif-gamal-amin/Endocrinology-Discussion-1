@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Endocrinology Discussion (1)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+            user-select: none; /* يمنع تحديد النص */
+            -webkit-user-select: none; /* لمتصفحات WebKit مثل Chrome وSafari */
+            -moz-user-select: none; /* لمتصفح Firefox */
+            -ms-user-select: none; /* لمتصفح Internet Explorer/Edge */
+        }
+        @media print { /* إخفاء الصفحة عند الطباعة */
+            body { 
+                display: none;
+            }
+        }
+
+        .quiz-container {
+            width: 90%;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #007BFF;
+        }
+        .timer {
+            color: red;
+            font-size: 18px;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .question p {
+            font-weight: bold;
+        }
+        .options label {
+            display: block;
+            margin: 5px 0;
+        }
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            border-radius: 5px;
+            display: none;
+        }
+        .incorrect {
+            color: red;
+        }
+        .correct {
+            color: green;
+        }
+        .question-result {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        img {
+            pointer-events: none; /* يمنع سحب الصور */
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>Endocrinology Discussion (1)</h1>
+        <div class="timer" id="timer">Time remaining: 60 seconds</div>
+
+        <div class="question" id="question-1">
+            <p>1-Which of the following statements is true regarding the pathophysiology of diabetes mellitus?</p>
+            <div class="options">
+                <label><input type="radio" name="q1" value=""> Concordance between identical twins is higher in type 2 diabetes mellitus than type 1</label>
+                <label><input type="radio" name="q1" value=""> Patients with type 1 diabetes mellitus are rarely HLA-DR4 positive</label>
+                <label><input type="radio" name="q1" value=""> Type 2 diabetes mellitus is associated with HLA-DR3</label>
+                <label><input type="radio" name="q1" value=""> Haemochromatosis is an example of primary diabetes</label>
+                <label><input type="radio" name="q1" value=""> Type 1 diabetes mellitus is thought to be inherited in an autosomal dominant fashion</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-2">
+            <p>2- A 18-year-old school student presented to the medical assessment unit with elevated blood glucose levels. There was no family history of diabetes and she was not currently on any medication. On examination, her BMI was 22 kg/m2 with normal general physical and systemic examination.
+            Investigations:
+            random blood sugar 16.5 mmol/L
+            pH 7.40 (7.35–7.45)
+            HCO3 25 mmol/L (22–27)
+            Na 140 mmol/L (135–145)
+            K 3.7 mmol/L (3.5–4.5)
+            urine sugar ++ Ketones – negative
+            Which one of the following test may be useful in establishing the underlying diagnosis considering her clinical profile?</p>
+            <div class="options">
+                <label><input type="radio" name="q2" value=""> Anti-GAD antibody</label>
+                <label><input type="radio" name="q2" value=""> Oral glucose tolerance test</label>
+                <label><input type="radio" name="q2" value=""> Serum ferritin and total iron binding capacity</label>
+                <label><input type="radio" name="q2" value=""> Toxicology screen</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-3">
+            <p>3- A 48-year-old woman with a recent diagnosis of type 2 diabetes is seen in the clinic because of deranged liver function Tests (LFTs). On examination she is obese with a BMI of 38.9 kg/m2 and her recent LFTs showed: 
+            AST 140 U/L, AST 1 50U/L 
+            Alkaline Phosphatase 250 U/L ( 45- 105) 
+            Which of the following is the most likely cause of this derangement?</p>
+            <div class="options">
+                <label><input type="radio" name="q3" value=""> Alcoholic liver disease</label>
+                <label><input type="radio" name="q3" value=""> Autoimmune hepatitis</label>
+                <label><input type="radio" name="q3" value=""> Drug induced hepatitis</label>
+                <label><input type="radio" name="q3" value=""> Hemochromatosis</label>
+                <label><input type="radio" name="q3" value=""> Non-alcoholic steato-hepatitis</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-4">
+            <p>4-A 37-year-old obese woman presents to clinic for routine health evaluation. She reports that over the last year she has had two yeast infections treated with over-the-counter remedies and she frequently feels thirsty. She reports waking up at night to urinate. Which of the following studies is the most appropriate first test in evaluating the patient for diabetes mellitus?</p>
+            <div class="options">
+                <label><input type="radio" name="q4" value=""> Hemoglobin A1C</label>
+                <label><input type="radio" name="q4" value=""> Oral glucose tolerance test</label>
+                <label><input type="radio" name="q4" value=""> Plasma C-peptide level</label>
+                <label><input type="radio" name="q4" value=""> Plasma insulin level</label>
+                <label><input type="radio" name="q4" value=""> Random plasma glucose level</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-5">
+            <p>5-A 46-year-old man with suspected diabetes mellitus has an oral glucose tolerance test, following the standard WHO protocol. The following results are obtained:
+            Time (hours)        Blood glucose (mmol/l)
+            0 hour ..                 5.7
+            2 hours ..               7.6
+            How should these results be interpreted?</p>
+            <div class="options">
+                <label><input type="radio" name="q5" value=""> Normal</label>
+                <label><input type="radio" name="q5" value=""> Impaired fasting glucose and impaired glucose tolerance</label>
+                <label><input type="radio" name="q5" value=""> Diabetes mellitus</label>
+                <label><input type="radio" name="q5" value=""> Impaired glucose tolerance</label>
+                <label><input type="radio" name="q5" value=""> Impaired fasting glucose</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-6">
+            <p>6-Which of the following results establishes a diagnosis of diabetes mellitus?</p>
+            <div class="options">
+                <label><input type="radio" name="q6" value=""> Asymptomatic patient with fasting glucose 7 9 mmol/L on one occasion</label>
+                <label><input type="radio" name="q6" value=""> Symptomatic patient with fasting glucose 6.6 mmol/L on two occasions</label>
+                <label><input type="radio" name="q6" value=""> Glycosuria +++</label>
+                <label><input type="radio" name="q6" value=""> Asymptomatic patient with random glucose 22.0 mmol/L on one occasion</label>
+                <label><input type="radio" name="q6" value=""> Symptomatic patient with random glucose 12.0 mmol/L on one occasion</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-7">
+            <p>7-An obese 48-year-old man presents with lethargy and polydipsia. What is the minimum HbA1c that would be diagnostic of type 2 diabetes mellitus?</p>
+            <div class="options">
+                <label><input type="radio" name="q7" value=""> Cannot use HbA1c for diagnosis</label>
+                <label><input type="radio" name="q7" value=""> 6.0% (42 mmol/mol)</label>
+                <label><input type="radio" name="q7" value=""> 6.3% (45 mmol/mol)</label>
+                <label><input type="radio" name="q7" value=""> 6.5% (48 mmol/mol)</label>
+                <label><input type="radio" name="q7" value=""> 7.0% (53 mmol/mol)</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-8">
+            <p>8-A 45-year-old man is reviewed in the diabetes clinic. The following results are obtained:
+            Urinalysis NAD
+            HbA1c 8.6%
+            Gliclazide is added to the metformin he already takes. What is the minimum time period after which the HbA1c should be repeated ?</p>
+            <div class="options">
+                <label><input type="radio" name="q8" value=""> 6 months</label>
+                <label><input type="radio" name="q8" value=""> 1 month</label>
+                <label><input type="radio" name="q8" value=""> 2 weeks</label>
+                <label><input type="radio" name="q8" value=""> 3 months</label>
+                <label><input type="radio" name="q8" value=""> 4 months</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-9">
+            <p>9-A 49-year-old man has recently been diagnosed with type 2 diabetes and is being carefully monitored. He has been advised to maintain a healthy diet and lifestyle, he attends a follow-up clinic and claims to have been following the diet stringently since his last appointment three months ago. The most appropriate investigation is:</p>
+            <div class="options">
+                <label><input type="radio" name="q9" value=""> Random plasma glucose</label>
+                <label><input type="radio" name="q9" value=""> Fasting plasma glucose</label>
+                <label><input type="radio" name="q9" value=""> Urine dipstick</label>
+                <label><input type="radio" name="q9" value=""> Glycated haemoglobin</label>
+                <label><input type="radio" name="q9" value=""> Weight measurement</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-10">
+            <p>10-A 52-year-old man has a set of fasting bloods as part of a work-tip for hypertension. The fasting glucose comes back as 6.5 mmol/l .The test is repeated and reported as 6.7 mmol/l. He says he feels constantly tired but denies any polyuria or polydipsia. How should these results be interpreted?</p>
+            <div class="options">
+                <label><input type="radio" name="q10" value=""> Impaired fasting glycaemia</label>
+                <label><input type="radio" name="q10" value=""> Suggestive of diabetes mellitus but not diagnostic</label>
+                <label><input type="radio" name="q10" value=""> Diabetes mellitus</label>
+                <label><input type="radio" name="q10" value=""> Normal</label>
+                <label><input type="radio" name="q10" value=""> Impaired glucose tolerance</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-11">
+            <p>11-A 52-year-old woman with suspected diabetes mellitus has an oral glucose tolerance test, following the standard WHO protocol The following results are obtained.
+            Time (hours)  0      
+            Blood glucose (mmol/I)  5.9
+            Time (hours)  2       
+            Blood glucose (mmol/I)  8.4
+            How should these results be interpreted?</p>
+            <div class="options">
+                <label><input type="radio" name="q11" value=""> Impaired fasting glucose and impaired glucose tolerance</label>
+                <label><input type="radio" name="q11" value=""> Normal</label>
+                <label><input type="radio" name="q11" value=""> Diabetes mellitus</label>
+                <label><input type="radio" name="q11" value=""> Impaired glucose tolerance</label>
+                <label><input type="radio" name="q11" value=""> Impaired fasting glucose</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-12">
+            <p>12-Which one of the following statements regarding impaired glucose regulation is correct?</p>
+            <div class="options">
+                <label><input type="radio" name="q12" value=""> All patient should have a repeat oral glucose tolerance test every 2 years</label>
+                <label><input type="radio" name="q12" value=""> Patients with impaired glucose tolerance are more likely to develop diabetes than patients with impaired fasting glycaemia</label>
+                <label><input type="radio" name="q12" value=""> Impaired glucose tolerance (IGT) is defined as a fasting glucose greater than or equal to 6.1 but less than 7.0 mmol/l</label>
+                <label><input type="radio" name="q12" value=""> Around 1 in 20 adults in the UK have impaired glucose regulation</label>
+                <label><input type="radio" name="q12" value=""> Patients should be offered metformin if lifestyle changes fail to improve their glucose profile</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-13">
+            <p>13-A 50-year-old Asian man is referred to the diabetes clinic after presenting with polyuria and polydipsia. He has a BMI of 30, a blood pressure measurement of 137/88 and a fasting plasma glucose of 7.7 mmol/L. The most appropriate first-line treatment is:</p>
+            <div class="options">
+                <label><input type="radio" name="q13" value="Dietary advice and Metformin"> Dietary advice and Metformin</label>
+                <label><input type="radio" name="q13" value="Sulphonylurea"> Sulphonylurea</label>
+                <label><input type="radio" name="q13" value="Exenatide"> Exenatide</label>
+                <label><input type="radio" name="q13" value="Thiazolidinediones"> Thiazolidinediones</label>
+                <label><input type="radio" name="q13" value="Metformin"> Metformin</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-14">
+            <p>14-A 45-year-old man is referred to the acute medical unit He had presented earlier in the day to the GP complaining of ongoing fatigue and polydipsia. A BM (finger-prick glucose) taken in the surgery was 22.3 mmol/l. On examination he is an obese man (BMI 36 kg/m2) with a pulse of 84 bpm and blood pressure of 144/84 mmHg. Blood tests reveal the following:<br>
+            Na+ 140 mmol/l<br>
+            K+ 3,9 mmol/l<br>
+            Bicarbonate 23 mmol/l<br>
+            Urea 5.2 mmol/l<br>
+            Creatinine 101 umol/l<br>
+            Glucose 21.2 mmol/l<br>
+            What is the most appropriate initial management?</p>
+            <div class="options">
+                <label><input type="radio" name="q14" value="Gliclazide"> Gliclazide</label>
+                <label><input type="radio" name="q14" value="Pioglitazone"> Pioglitazone</label>
+                <label><input type="radio" name="q14" value="Weight loss"> Weight loss</label>
+                <label><input type="radio" name="q14" value="Metformin"> Metformin</label>
+                <label><input type="radio" name="q14" value="Commence insulin therapy"> Commence insulin therapy</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-15">
+            <p>15-A 65-year-old man with a history of ischaemic heart disease is admitted with chest pain. The 12-hour troponin T is negative. During admission his medications were altered to reduce the risk of cardiovascular disease and to treat previously undiagnosed type 2 diabetes mellitus. Shortly after discharge he presents to his GP complaining of diarrhoea. Which one of the following medications is most likely to be responsible?</p>
+            <div class="options">
+                <label><input type="radio" name="q15" value="Gliclazide"> Gliclazide</label>
+                <label><input type="radio" name="q15" value="Clopidogrel"> Clopidogrel</label>
+                <label><input type="radio" name="q15" value="Rosiglitazone"> Rosiglitazone</label>
+                <label><input type="radio" name="q15" value="Metformin"> Metformin</label>
+                <label><input type="radio" name="q15" value="Atorvastatin"> Atorvastatin</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-16">
+            <p>16- A 55-year-old man was reviewed in the diabetes clinic on an annual follow-up visit. He had a background history of type 2 DM for 8 years, and taking metformin and gliclazide therapy. On examination, he had features of bilateral neuropathy. Which one of the following side effects is associated with long-term metformin use?</p>
+            <div class="options">
+                <label><input type="radio" name="q16" value="Vitamin B12 deficiency"> Vitamin B12 deficiency</label>
+                <label><input type="radio" name="q16" value="Magnesium deficiency"> Magnesium deficiency</label>
+                <label><input type="radio" name="q16" value="Pyridoxine deficiency"> Pyridoxine deficiency</label>
+                <label><input type="radio" name="q16" value="Selenium deficiency"> Selenium deficiency</label>
+                <label><input type="radio" name="q16" value="Thiamine deficiency"> Thiamine deficiency</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-17">
+            <p>17-You reviewed a 47-year-old man one year after he was diagnosed with prediabetes. Last year he had a HbA1c taken after being diagnosed as having hypertension. This was recorded as being 43 mmol/mol (6.1%). His most recent blood test is recorded as being 45 mmol/mol (6.3%) despite the patient reporting that he has changed his diet as instructed and exercising three times a week. His body mass index (BMI) today is 26.5 kg/m². Last year it was 27.5kg/m². What is the most appropriate course of action?</p>
+            <div class="options">
+                <label><input type="radio" name="q17" value="Start metformin"> Start metformin</label>
+                <label><input type="radio" name="q17" value="Start pioglitazone"> Start pioglitazone</label>
+                <label><input type="radio" name="q17" value="Review again in 12 months"> Review again in 12 months</label>
+                <label><input type="radio" name="q17" value="Start orlistat"> Start orlistat</label>
+                <label><input type="radio" name="q17" value="Do a oral glucose tolerance test"> Do a oral glucose tolerance test</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-18">
+            <p>18-A 62-year-old male with a history of type 2 diabetes mellitus is investigated tor lethargy. Blood tests areas follows:<br>
+            Na+ 139 mmol/l<br>
+            K+ 4.2 mmol/l<br>
+            Bicarbonate 15 mmol/l<br>
+            Chloride 105 mmol/l<br>
+            Urea 15.2 mmol/l<br>
+            Creatinine 267 umol/I<br>
+            Glucose 9.2 mmol/l<br>
+            Which one of the following is most likely to be contributing to the low bicarbonate value?</p>
+            <div class="options">
+                <label><input type="radio" name="q18" value="Vomiting due to gastroparesis"> Vomiting due to gastroparesis</label>
+                <label><input type="radio" name="q18" value="Renal tubular acidosis"> Renal tubular acidosis</label>
+                <label><input type="radio" name="q18" value="Addison's disease"> Addison's disease</label>
+                <label><input type="radio" name="q18" value="Metformin"> Metformin</label>
+                <label><input type="radio" name="q18" value="Rosiglitazone"> Rosiglitazone</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-19">
+            <p>19-A 54-year-old obese man presents with lethargy and polyuria A fasting blood sugar is requested...<br>
+            Fasting glucose 8.4 mmol/l<br>
+            He is given dietary advice and a decision is made to start metformin. What is the most appropriate prescription?</p>
+            <div class="options">
+                <label><input type="radio" name="q19" value="Metformin 5OOmg od with food for 5 days then metformin 500mg bd for 5 days then metformin 500mg tds for 20 days then review"> Metformin 5OOmg od with food for 5 days then metformin 500mg bd for 5 days then metformin 500mg tds for 20 days then review</label>
+                <label><input type="radio" name="q19" value="Metformin 500mg tds with food"> Metformin 500mg tds with food</label>
+                <label><input type="radio" name="q19" value="Metformin 5OOmg od with food for 14 days then metformin 500mg bd for 14 days then review"> Metformin 5OOmg od with food for 14 days then metformin 500mg bd for 14 days then review</label>
+                <label><input type="radio" name="q19" value="Metformin 1g tds with food"> Metformin 1g tds with food</label>
+                <label><input type="radio" name="q19" value="Metformin 500mg tds taken at least 1hour before meals"> Metformin 500mg tds taken at least 1hour before meals</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-20">
+            <p>20-A 56-years Muslim man with a history of type 2 diabetes asks for advice He is due to start fasting for Ramadan soon and is unsure what he should do with regards to his diabetes medications He currently takes metformin 500mg tds What is the most appropriate advice?</p>
+            <div class="options">
+                <label><input type="radio" name="q20" value="Switch to subcutaneous biphasic insulin for the duration of Ramadan"> Switch to subcutaneous biphasic insulin for the duration of Ramadan</label>
+                <label><input type="radio" name="q20" value="500 mg at the predawn meal + 1OOO mg at the sunset meal"> 500 mg at the predawn meal + 1OOO mg at the sunset meal</label>
+                <label><input type="radio" name="q20" value="No change to the metformin dose"> No change to the metformin dose</label>
+                <label><input type="radio" name="q20" value="1000 mg at the predawn meal + 500 mg at the sunset meal"> 1000 mg at the predawn meal + 500 mg at the sunset meal</label>
+                <label><input type="radio" name="q20" value="Stop metformin for the duration of Ramadan"> Stop metformin for the duration of Ramadan</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-21">
+            <p>21-55 years old obese woman presents to the clinic for evaluation of multiple symptoms. She notes frequent episodes of vaginal yeast infections in the past 2 months, recent weight loss in spite of large appetite and waking up frequently at night to urinate. Her only past medical history is hypertension that is treated with ramipril. Which of the following is the most likely diagnosis?</p>
+            <div class="options">
+                <label><input type="radio" name="q21" value="Diabetes mellitus"> Diabetes mellitus</label>
+                <label><input type="radio" name="q21" value="Diabetes insipidus"> Diabetes insipidus</label>
+                <label><input type="radio" name="q21" value="Vaginitis and cystitis"> Vaginitis and cystitis</label>
+                <label><input type="radio" name="q21" value="Myxedema"> Myxedema</label>
+                <label><input type="radio" name="q21" value="Pheochromocytoma"> Pheochromocytoma</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-22">
+            <p>22-57 years old man presents to the clinic complains of increased thirst and urination. Medical history is significant for hypertension which is well controlled on diltiazem. Blood pressure 135/85, heart rate 72, BMI 31 and remaining exam is normal. Which of the following is the most appropriate initial test?</p>
+            <div class="options">
+                <label><input type="radio" name="q22" value="Urine osmolarity"> Urine osmolarity</label>
+                <label><input type="radio" name="q22" value="Haemoglobin A1C level"> Haemoglobin A1C level</label>
+                <label><input type="radio" name="q22" value="Fasting blood sugar"> Fasting blood sugar</label>
+                <label><input type="radio" name="q22" value="Glucose tolerance test"> Glucose tolerance test</label>
+                <label><input type="radio" name="q22" value="Random glucose"> Random glucose</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-23">
+            <p>23-A 41-year-old man has been recently diagnosed with type 2 diabetes and has been following a plan of Metformin and lifestyle measures to improve his diet and increase his level of exercise. On returning to clinic, his BMI is 23, fasting plasma glucose 9.0 mmol/L, blood pressure 133/84 mmHg and HbA1c of 7.1 per cent. The most appropriate treatment option is:</p>
+            <div class="options">
+                <label><input type="radio" name="q23" value="Sulphonylurea"> Sulphonylurea</label>
+                <label><input type="radio" name="q23" value="Insulin"> Insulin</label>
+                <label><input type="radio" name="q23" value="Exenatide"> Exenatide</label>
+                <label><input type="radio" name="q23" value="Further diet and exercise"> Further diet and exercise</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-24">
+            <p>24- All of the following cause weight gain except ..</p>
+            <div class="options">
+                <label><input type="radio" name="q24" value="Gliclazide"> Gliclazide</label>
+                <label><input type="radio" name="q24" value="Glibenclamide"> Glibenclamide</label>
+                <label><input type="radio" name="q24" value="Glybride"> Glybride</label>
+                <label><input type="radio" name="q24" value="Metformin"> Metformin</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-25">
+            <p>25-A 56-year-old man is reviewed in the Cardiology outpatient clinic following a myocardial infarction one year previously. During his admission he was found to be hypertensive and diabetic. He complains that he has put on 5kg in weight in the past 6 months. Which of his medications may be contributing to his weight gain?</p>
+            <div class="options">
+                <label><input type="radio" name="q25" value="Metformin"> Metformin</label>
+                <label><input type="radio" name="q25" value="Losartan"> Losartan</label>
+                <label><input type="radio" name="q25" value="Clopidogrel"> Clopidogrel</label>
+                <label><input type="radio" name="q25" value="Gliclazide"> Gliclazide</label>
+                <label><input type="radio" name="q25" value="Simvastatin"> Simvastatin</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-26">
+            <p>26-A 78-year-old nursing home resident is admitted to the acute medical unit after being found collapsed in his room. A carer from the nursing home is present and reports that he has had regular 'hypos' recently. On admission he was drowsy and the blood glucose was 1.8 mmol/l. Following intravenous dextrose the patient's condition significantly improved.<br>
+            His medication on admission is as follows:<br>
+            Metformin 1g bd<br>
+            Gliclazide 160 mg od<br>
+            Pioglitazone 45 mg od<br>
+            Aspirin 75 mg od<br>
+            Simvastatin 40 mg on<br>
+            What is the most appropriate initial action?</p>
+            <div class="options">
+                <label><input type="radio" name="q26" value="Stop metformin"> Stop metformin</label>
+                <label><input type="radio" name="q26" value="Stop pioglitazone"> Stop pioglitazone</label>
+                <label><input type="radio" name="q26" value="Stop gliclazide"> Stop gliclazide</label>
+                <label><input type="radio" name="q26" value="Make no changes to the medication"> Make no changes to the medication</label>
+                <label><input type="radio" name="q26" value="Stop all oral antidiabetic medications"> Stop all oral antidiabetic medications</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-27">
+            <p>27-Dipeptidyl peptidase inhibitors 4 (DPP4) are novel oral hypoglycaemic agents that inhibit the enzyme DPP4 and prevent breakdown of endogenous incretins. Which one of the following DPP4 inhibitor is excreted unchanged in faeces and does not require any dose modification in renal disease?</p>
+            <div class="options">
+                <label><input type="radio" name="q27" value="Alogliptin"> Alogliptin</label>
+                <label><input type="radio" name="q27" value="Linagliptin"> Linagliptin</label>
+                <label><input type="radio" name="q27" value="Saxagliptin"> Saxagliptin</label>
+                <label><input type="radio" name="q27" value="Sitagliptin"> Sitagliptin</label>
+                <label><input type="radio" name="q27" value="Vildagliptin"> Vildagliptin</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-28">
+            <p>28-A 51-year-old woman is reviewed in the diabetes clinic. She was diagnosed with type 2 diabetes mellitus 12 months ago and still has poor glycaemic control. She has recently had to stop taking gliclazide due to repeated episodes of hypoglycaemia and is only taking maximum dose metformin. Her BME is 26 kg/mA2. What is the most appropriate next step in management?</p>
+            <div class="options">
+                <label><input type="radio" name="q28" value="Add either a thiazolidinedione or a DPP-4 inhibitor"> Add either a thiazolidinedione or a DPP-4 inhibitor</label>
+                <label><input type="radio" name="q28" value="Refer her for a laparoscopic gastric band"> Refer her for a laparoscopic gastric band</label>
+                <label><input type="radio" name="q28" value="Refer her for insulin therapy"> Refer her for insulin therapy</label>
+                <label><input type="radio" name="q28" value="Add either a thiazolidinedione or exenatide"> Add either a thiazolidinedione or exenatide</label>
+                <label><input type="radio" name="q28" value="Add either a DPP-4 inhibitor or exenatide"> Add either a DPP-4 inhibitor or exenatide</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-29">
+            <p>29-A 55-year-old accountant with type 2 diabetes mellitus comes for review. When he was diagnosed 12 months ago he was started on metformin and the dose was titrated up. His HbA1c one year ago was 75 mmol/mol (DCCT-HbA1c 9%) and is now 69 mmol/mol (7.9 %). His body mass index is 33 kg/m2. What is the most appropriate next step in management?</p>
+            <div class="options">
+                <label><input type="radio" name="q29" value="Add exenatide"> Add exenatide</label>
+                <label><input type="radio" name="q29" value="Add sitagliptin"> Add sitagliptin</label>
+                <label><input type="radio" name="q29" value="Add glipizide"> Add glipizide</label>
+                <label><input type="radio" name="q29" value="Make no changes to his medication"> Make no changes to his medication</label>
+                <label><input type="radio" name="q29" value="Add pioglitazone"> Add pioglitazone</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-30">
+            <p>30-Which one of the following statements regarding dipeptidyl peptidase-4 inhibitors in the management of type 2 diabetes mellitus is correct?</p>
+            <div class="options">
+                <label><input type="radio" name="q30" value="Metformin should always be co-prescribed"> Metformin should always be co-prescribed</label>
+                <label><input type="radio" name="q30" value="Do not cause weight gain"> Do not cause weight gain</label>
+                <label><input type="radio" name="q30" value="Is given via a subcutaneous injection"> Is given via a subcutaneous injection</label>
+                <label><input type="radio" name="q30" value="An example is exenatide"> An example is exenatide</label>
+                <label><input type="radio" name="q30" value="Patients should be warned that hypoglycaemia is the most common side-effect"> Patients should be warned that hypoglycaemia is the most common side-effect</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-31">
+            <p>31-A 62-year-old HGV driver is reviewed. He was diagnosed last year with type 2 diabetes mellitus. Following weight loss and metformin, his HbA1c has decreased from 8.8% to 8.4%. What is the most suitable next step in management?</p>
+            <div class="options">
+                <label><input type="radio" name="q31" value="Add exenatide"> Add exenatide</label>
+                <label><input type="radio" name="q31" value="Make no changes to management"> Make no changes to management</label>
+                <label><input type="radio" name="q31" value="Add gliclazide"> Add gliclazide</label>
+                <label><input type="radio" name="q31" value="Stop metformin for a period to ensure hypoglycaemic awareness is not lost"> Stop metformin for a period to ensure hypoglycaemic awareness is not lost</label>
+                <label><input type="radio" name="q31" value="Add pioglitazone"> Add pioglitazone</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-32">
+            <p>32-A 56-year-old lady with a BMI of 27 is reviewed in the diabetic clinic due to poor glycaemic control. She is currently being treated with gliclazide 160mg bd. Her latest bloods show:<br>
+            Na+ 139 mmol/l<br>
+            K+ 4.1 mmol/l<br>
+            Urea 8.4 mmol/l<br>
+            Creatinine 170 μmol/l ( normal range .. 70-110 umol/l)<br>
+            ALT 25 iu/l<br>
+            yGT 33 iu/l<br>
+            HbA1c 9.4%<br>
+            Which one of the following medications should be added next?</p>
+            <div class="options">
+                <label><input type="radio" name="q32" value="Guar gum"> Guar gum</label>
+                <label><input type="radio" name="q32" value="Pioglitazone"> Pioglitazone</label>
+                <label><input type="radio" name="q32" value="Metformin"> Metformin</label>
+                <label><input type="radio" name="q32" value="Acarbose"> Acarbose</label>
+                <label><input type="radio" name="q32" value="Repaglinide"> Repaglinide</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-33">
+            <p>33-What is the mechanism of action of thiazolidinediones?</p>
+            <div class="options">
+                <label><input type="radio" name="q33" value="PPAR-gamma receptor antagonist"> PPAR-gamma receptor antagonist</label>
+                <label><input type="radio" name="q33" value="PPAR-alpha receptor antagonist"> PPAR-alpha receptor antagonist</label>
+                <label><input type="radio" name="q33" value="PPAR-alpha receptor agonist"> PPAR-alpha receptor agonist</label>
+                <label><input type="radio" name="q33" value="PPAR-gamma receptor agonist"> PPAR-gamma receptor agonist</label>
+                <label><input type="radio" name="q33" value="Increases endogenous insulin secretion"> Increases endogenous insulin secretion</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-34">
+            <p>34-A 54-year-old man with type 2 diabetes mellitus is being reviewed in a clinic. He is currently taking pioglitazone, metformin, aspirin and simvastatin. Which one of the following problems is most likely to be caused by pioglitazone?</p>
+            <div class="options">
+                <label><input type="radio" name="q34" value="Photosensitivity"> Photosensitivity</label>
+                <label><input type="radio" name="q34" value="Thrombocytopenia"> Thrombocytopenia</label>
+                <label><input type="radio" name="q34" value="Myalgia"> Myalgia</label>
+                <label><input type="radio" name="q34" value="Peripheral oedema"> Peripheral oedema</label>
+                <label><input type="radio" name="q34" value="Hyponatraemia"> Hyponatraemia</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-35">
+            <p>35-A 55-year-old woman with type 2 diabetes mellitus is reviewed. A decision is made to start thiazolidinedione therapy. Which one of the following points is it most relevant to consider before starting treatment?</p>
+            <div class="options">
+                <label><input type="radio" name="q35" value="History of oesophageal problems"> History of oesophageal problems</label>
+                <label><input type="radio" name="q35" value="Fracture risk"> Fracture risk</label>
+                <label><input type="radio" name="q35" value="History of depression"> History of depression</label>
+                <label><input type="radio" name="q35" value="History of cardiac arrhythmias"> History of cardiac arrhythmias</label>
+                <label><input type="radio" name="q35" value="Visual acuity"> Visual acuity</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-36">
+            <p>36-Which one of the following increases the risk of developing peripheral oedema in a patient taking pioglitazone?</p>
+            <div class="options">
+                <label><input type="radio" name="q36" value="Concomitant use with gliclazide"> Concomitant use with gliclazide</label>
+                <label><input type="radio" name="q36" value="Serum sodium < 140 mmol/l"> Serum sodium < 140 mmol/l</label>
+                <label><input type="radio" name="q36" value="Concomitant use with insulin"> Concomitant use with insulin</label>
+                <label><input type="radio" name="q36" value="Concomitant use with metformin"> Concomitant use with metformin</label>
+                <label><input type="radio" name="q36" value="Serum potassium < 4.0 mmol/l"> Serum potassium < 4.0 mmol/l</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-37">
+            <p>37-A 49-year-old man with type 2 diabetes mellitus is reviewed. Despite weight loss and therapy with metformin and gliclazide his last HbA1c is 7.2%. Which one of the following factors would suggest that the patient may benefit from a meglitinide?</p>
+            <div class="options">
+                <label><input type="radio" name="q37" value="Obesity"> Obesity</label>
+                <label><input type="radio" name="q37" value="Not adhering to diabetic diet"> Not adhering to diabetic diet</label>
+                <label><input type="radio" name="q37" value="Problems with hypoglycaemia from gliclazide"> Problems with hypoglycaemia from gliclazide</label>
+                <label><input type="radio" name="q37" value="Erratic lifestyle"> Erratic lifestyle</label>
+                <label><input type="radio" name="q37" value="Elderly and frail patients"> Elderly and frail patients</label>
+            </div>
+        </div>
+
+        <button class="btn" id="nextBtn" onclick="nextQuestion()">Next Question</button>
+        <button class="btn" id="submitBtn" onclick="evaluateQuiz()" style="display: none;">Submit Quiz</button>
+
+        <div class="result" id="result">
+            <h2>Results</h2>
+            <div id="score"></div>
+            <div id="answers-summary"></div>
+        </div>
+    </div>
+
+    <script>
+        // إضافة حدث للكيبورد لمنع حفظ الصفحة
+        document.addEventListener("keydown", function (event) {
+            if (event.ctrlKey && event.key === "s") {
+                event.preventDefault();
+                alert("تم منع حفظ الصفحة!");
+            }
+        });
+
+        // إضافة حدث للكيبورد لمنع فتح أدوات المطور
+        document.addEventListener("keydown", function (event) {
+            if (event.key === "F12" || (event.ctrlKey && event.shiftKey && event.key === "I")) {
+                event.preventDefault();
+                alert("تم تعطيل أدوات المطور!");
+            }
+        });
+
+        // إضافة حدث للكيبورد لمنع النقر بزر اليمين
+        document.addEventListener('contextmenu', function(event) {
+            event.preventDefault(); // يمنع فتح قائمة السياق
+            alert("النقر بزر الماوس الأيمن غير مسموح به.");
+        });
+
+        let currentQuestion = 1;
+        const totalQuestions = 37;
+        let score = 0;
+        let timerInterval;
+        const answers = {
+            q1: ""
+        };
+
+        function showQuestion() {
+            document.querySelectorAll('.question').forEach((q, index) => {
+                q .style.display = index + 1 === currentQuestion ? 'block' : 'none';
+            });
+            document.getElementById('nextBtn').style.display = currentQuestion < totalQuestions ? 'block' : 'none';
+            document.getElementById('submitBtn').style.display = currentQuestion === totalQuestions ? 'block' : 'none';
+        }
+
+        function nextQuestion() {
+            currentQuestion++;
+            clearInterval(timerInterval);
+            startTimer();
+            showQuestion();
+        }
+
+        function startTimer() {
+            let timeRemaining = 60;
+            document.getElementById('timer').textContent = `Time remaining: ${timeRemaining} seconds`;
+            timerInterval = setInterval(() => {
+                timeRemaining--;
+                document.getElementById('timer').textContent = `Time remaining: ${timeRemaining} seconds`;
+                if (timeRemaining <= 0) {
+                    clearInterval(timerInterval);
+                    if (currentQuestion < totalQuestions) {
+                        nextQuestion();
+                    } else {
+                        evaluateQuiz();
+                    }
+                }
+            }, 1000);
+        }
+
+        function evaluateQuiz() {
+            score = 0;
+            let summary = '';
+
+            for (let i = 1; i <= totalQuestions; i++) {
+                const selectedOption = document.querySelector(`input[name="q${i}"]:checked`);
+                const correctAnswer = answers[`q${i}`];
+                const questionElement = document.getElementById(`question-${i}`);
+                const options = document.querySelectorAll(`input[name="q${i}"]`);
+                let questionSummary = `<p><strong>Question ${i}: </strong>${questionElement.querySelector('p').innerText}</p>`;
+
+                options.forEach(option => {
+                    const optionLabel = option.parentElement;
+                    if (option.value === correctAnswer) {
+                        optionLabel.style.color = 'green';
+                    } else if (selectedOption && selectedOption.value === option.value) {
+                        optionLabel.style.color = 'red';
+                    }
+                });
+
+                questionSummary += `<div>Answer: <strong>${selectedOption ? selectedOption.value : 'None selected'}</strong></div>`;
+                questionSummary += `<div>Correct answer: <strong>${correctAnswer}</strong></div>`;
+
+                if (selectedOption && selectedOption.value === correctAnswer) {
+                    score++;
+                    summary += questionSummary + `<p class="correct">Correct</p>`;
+                } else {
+                    summary += questionSummary + `<p class="incorrect">Incorrect</p>`;
+                }
+            }
+
+            document.getElementById('score').textContent = `Your score: ${score} out of ${totalQuestions}`;
+            document.getElementById('answers-summary').innerHTML = summary;
+            document.getElementById('result').style.display = 'block';
+            document.getElementById('timer').style.display = 'none'; 
+            document.querySelectorAll('.question').forEach((q) => q.style.display = 'none');
+
+            clearInterval(timerInterval);
+        }
+
+        window.onload = function() {
+            showQuestion();
+            startTimer();
+        };
+        
+        
+        function nextQuestion() {
+    // Increase the current question counter
+            currentQuestion++;
+
+            // Reset the timer
+            clearInterval(timerInterval); // Stop the current timer
+            startTimer(); // Start the timer from the beginning
+
+            // Show the next question
+            showQuestion();
+        }
+        
+    </script>
+</body>
+</html>
